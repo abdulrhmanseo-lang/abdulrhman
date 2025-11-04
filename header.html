@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <title>شرفات للاستثمار - رأس الصفحة</title>
+  <title>شرفات للاستثمار | الحجوزات</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -10,22 +10,27 @@
       --dark-blue: #0f2f55;
       --accent: #29b6f6;
       --bg: #050812;
+      --text: #f8faff;
+      --muted: #a5b0c5;
+      --transition: 0.3s ease;
     }
 
     body {
       margin: 0;
       font-family: "Tahoma", "Segoe UI", sans-serif;
-      background: transparent;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
+    /* ====== الهيدر ====== */
     header {
       background: radial-gradient(circle at top, #0b1c39, #050812 55%);
-      color: #fff;
       border-bottom: 1px solid rgba(255,255,255,.05);
-      backdrop-filter: blur(8px);
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 30;
+      backdrop-filter: blur(8px);
     }
 
     .topbar {
@@ -42,8 +47,8 @@
       display: flex;
       align-items: center;
       gap: .6rem;
-      text-decoration: none;
       color: #fff;
+      text-decoration: none;
     }
 
     .logo img {
@@ -54,224 +59,307 @@
       box-shadow: 0 0 10px rgba(41,182,246,.25);
     }
 
-    .logo-text {
-      line-height: 1.1;
-    }
-
     .logo-text strong {
       display: block;
-      font-size: .85rem;
+      font-size: .9rem;
     }
-
     .logo-text small {
-      font-size: .58rem;
-      opacity: .65;
+      font-size: .6rem;
+      opacity: .7;
     }
 
     nav {
       display: flex;
-      gap: .2rem;
       align-items: center;
-      transition: .3s ease;
+      gap: .4rem;
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      padding: .35rem .75rem;
-      border-radius: .6rem;
-      font-size: .74rem;
-      transition: .2s;
+      padding: .4rem .9rem;
+      border-radius: .5rem;
+      font-size: .8rem;
+      transition: var(--transition);
       border: 1px solid transparent;
     }
 
-    nav a.active,
-    nav a:hover {
+    nav a:hover,
+    nav a.active {
       background: rgba(41,182,246,.12);
       border-color: rgba(41,182,246,.3);
     }
 
-    .cta {
-      display: flex;
-      gap: .5rem;
-      align-items: center;
-    }
-
     .btn-primary {
-      background: linear-gradient(135deg, #29b6f6 0%, #0f2f55 100%);
+      background: linear-gradient(135deg, #29b6f6, #0f2f55);
       border: none;
       color: #fff;
-      padding: .45rem 1rem;
+      padding: .5rem 1rem;
       border-radius: .6rem;
-      font-size: .7rem;
+      font-size: .8rem;
       cursor: pointer;
-      transition: .2s;
+      transition: var(--transition);
     }
-
-    .btn-primary:hover {
-      opacity: .9;
-      transform: translateY(-1px);
-    }
+    .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
 
     .menu-toggle {
       display: none;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.2);
-      width: 34px;
-      height: 30px;
-      border-radius: .4rem;
-      cursor: pointer;
-      gap: 4px;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 25;
+      width: 32px;
+      height: 30px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: .4rem;
+      cursor: pointer;
+      z-index: 40;
     }
-
     .menu-toggle span {
       width: 18px;
       height: 2px;
       background: #fff;
-      border-radius: 2px;
+      margin: 3px 0;
       transition: .3s;
     }
 
-    /* قائمة الجوال الجانبية */
-    @media (max-width: 820px) {
+    @media (max-width: 850px) {
       nav {
         position: fixed;
         top: 0;
-        right: -250px;
+        right: -240px;
         height: 100%;
         width: 220px;
         flex-direction: column;
         align-items: flex-start;
         background: rgba(5,8,18,.97);
         border-left: 1px solid rgba(255,255,255,.05);
-        border-radius: 0;
         padding: 2.5rem 1rem;
-        gap: .6rem;
-        box-shadow: -4px 0 25px rgba(0,0,0,.5);
+        gap: .8rem;
         transition: right .35s ease;
-        z-index: 22;
       }
-
-      nav.show {
-        right: 0;
-      }
-
-      nav a {
-        width: 100%;
-        padding: .7rem .8rem;
-        border-radius: .6rem;
-        border: 1px solid transparent;
-        transition: background .2s;
-      }
-
-      nav a:hover {
-        background: rgba(41,182,246,.12);
-        border-color: rgba(41,182,246,.3);
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      /* عند تفعيل القائمة نحول شكل البرجر إلى × */
-      .menu-toggle.active span:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-      }
-      .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-      }
-      .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-      }
+      nav.show { right: 0; }
+      .menu-toggle { display: flex; }
+      .menu-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+      .menu-toggle.active span:nth-child(2) { opacity: 0; }
+      .menu-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
     }
 
-    /* طبقة تظليل للخلفية عند فتح القائمة */
     .overlay {
       display: none;
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,.55);
       backdrop-filter: blur(3px);
-      z-index: 21;
-      transition: opacity .3s ease;
+      z-index: 35;
+    }
+    .overlay.show { display: block; }
+
+    /* ====== قسم الحجوزات ====== */
+    #booking {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 2rem 1.5rem;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 1rem;
+      box-shadow: 0 0 25px rgba(0,0,0,.3);
     }
 
-    .overlay.show {
-      display: block;
+    #booking h1 {
+      text-align: center;
+      font-size: 1.4rem;
+      margin-bottom: .5rem;
+    }
+
+    #booking p {
+      text-align: center;
+      color: var(--muted);
+      font-size: .85rem;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: .7rem;
+      border-radius: .6rem;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.05);
+      color: #fff;
+      font-size: .85rem;
+      transition: .3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 10px rgba(41,182,246,.3);
+    }
+
+    textarea { resize: none; height: 100px; }
+
+    button[type="submit"] {
+      background: linear-gradient(135deg, var(--accent), var(--dark-blue));
+      border: none;
+      color: #fff;
+      padding: .8rem;
+      border-radius: .6rem;
+      font-size: .9rem;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-2px);
+      opacity: .9;
+    }
+
+    /* ====== تواصل معنا ====== */
+    #contact {
+      padding: 3rem 1.5rem;
+      background: linear-gradient(to top, #02040a, #050a16);
+      text-align: center;
+      color: var(--text);
+    }
+
+    #contact h2 {
+      font-size: 1.3rem;
+      margin-bottom: .6rem;
+    }
+
+    #contact p {
+      color: var(--muted);
+      font-size: .85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: #fff;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.15);
+      padding: .5rem 1rem;
+      border-radius: .6rem;
+      transition: .3s;
+      font-size: .8rem;
+    }
+
+    .contact-links a:hover {
+      background: rgba(41,182,246,.15);
+      border-color: rgba(41,182,246,.4);
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: var(--muted);
+      font-size: .75rem;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: #03050a;
     }
   </style>
 </head>
 <body>
-  <header id="main-header">
+
+  <!-- رأس الصفحة -->
+  <header>
     <div class="topbar">
-      <!-- شعار الشركة -->
       <a href="index.html" class="logo">
-        <img src="media/logo.jpg" alt="شعار شرفات للاستثمار" />
+        <img src="media/logo.jpg" alt="شعار شرفات" />
         <div class="logo-text">
           <strong>شرفات للاستثمار</strong>
           <small>حلول المحافظ الرقمية</small>
         </div>
       </a>
 
-      <!-- روابط التنقل -->
       <nav id="main-nav">
-        <a href="index.html#hero" class="active">الرئيسية</a>
+        <a href="index.html">الرئيسية</a>
         <a href="index.html#services">الخدمات</a>
-        <a href="index.html#wallets">المحافظ الرقمية</a>
+        <a href="booking.html" class="active">الحجوزات</a>
         <a href="index.html#about">عن شرفات</a>
-        <a href="index.html#contact">تواصل</a>
+        <a href="#contact">تواصل معنا</a>
       </nav>
 
-      <!-- الأزرار -->
-      <div class="cta">
-        <button class="btn-primary" onclick="location.href='index.html#login'">تسجيل الدخول</button>
-        <button class="menu-toggle" aria-label="فتح القائمة" id="menuToggle">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <!-- طبقة التظليل -->
   <div class="overlay" id="overlay"></div>
 
+  <!-- قسم الحجوزات -->
+  <section id="booking">
+    <h1>احجز موعدك معنا</h1>
+    <p>املأ النموذج التالي لحجز موعد استشارة أو اجتماع مع فريق شرفات للاستثمار.</p>
+
+    <form onsubmit="return handleBooking(event)">
+      <input type="text" id="name" placeholder="الاسم الكامل" required />
+      <input type="email" id="email" placeholder="البريد الإلكتروني" required />
+      <input type="tel" id="phone" placeholder="رقم الجوال" required />
+      <select id="service" required>
+        <option value="">اختر الخدمة المطلوبة</option>
+        <option>استشارة مالية</option>
+        <option>إدارة محافظ</option>
+        <option>تطوير شراكة</option>
+        <option>عرض استثماري</option>
+      </select>
+      <textarea id="notes" placeholder="ملاحظات إضافية"></textarea>
+      <button type="submit">إرسال الحجز</button>
+      <p id="msgStatus" style="text-align:center;margin-top:.7rem;color:var(--accent);"></p>
+    </form>
+  </section>
+
+  <!-- تواصل معنا -->
+  <section id="contact">
+    <h2>تواصل معنا مباشرة</h2>
+    <p>فريقنا متاح دائمًا للرد على استفساراتكم عبر الوسائل التالية:</p>
+    <div class="contact-links">
+      <a href="mailto:info@sharafat.sa">📧 البريد الإلكتروني</a>
+      <a href="tel:+966500000000">📞 الاتصال المباشر</a>
+      <a href="https://wa.me/966500000000" target="_blank">💬 واتساب</a>
+    </div>
+  </section>
+
+  <footer>© 2025 شرفات للاستثمار - جميع الحقوق محفوظة</footer>
+
   <script>
-    (function () {
-      const toggle = document.getElementById("menuToggle");
-      const nav = document.getElementById("main-nav");
-      const overlay = document.getElementById("overlay");
+    // القائمة الجانبية للجوال
+    const toggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("main-nav");
+    const overlay = document.getElementById("overlay");
 
-      // عند النقر على زر البرجر
-      toggle.addEventListener("click", () => {
-        nav.classList.toggle("show");
-        toggle.classList.toggle("active");
-        overlay.classList.toggle("show");
-      });
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("show");
+      toggle.classList.toggle("active");
+      overlay.classList.toggle("show");
+    });
 
-      // عند النقر على الخلفية تغلق القائمة
-      overlay.addEventListener("click", () => {
-        nav.classList.remove("show");
-        toggle.classList.remove("active");
-        overlay.classList.remove("show");
-      });
+    overlay.addEventListener("click", () => {
+      nav.classList.remove("show");
+      toggle.classList.remove("active");
+      overlay.classList.remove("show");
+    });
 
-    
-      const links = document.querySelectorAll("#main-nav a");
-      const currentHash = window.location.hash;
-      if (currentHash) {
-        links.forEach(a => {
-          if (a.getAttribute("href").endsWith(currentHash)) {
-            a.classList.add("active");
-          } else {
-            a.classList.remove("active");
-          }
-        });
-      }
-    })();
+    // معالجة نموذج الحجز
+    function handleBooking(e) {
+      e.preventDefault();
+      document.getElementById("msgStatus").textContent = "✅ تم إرسال طلب الحجز بنجاح. سنتواصل معك قريبًا.";
+      e.target.reset();
+      return false;
+    }
   </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>شرفات للاستثمار | حلول المحافظ الرقمية</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="شرفات للاستثمار - منصة سعودية متخصصة في المحافظ الرقمية، الربط المالي، وإدارة الأموال بثقة وابتكار." />
+  <meta name="description" content="شرفات للاستثمار - منصة سعودية تقدم حلولاً رقمية لإدارة المحافظ المالية، الربط المالي، والتحليل الذكي." />
 
   <style>
     :root {
@@ -23,20 +23,21 @@
 
     body {
       margin: 0;
-      font-family: "Tahoma", "Segoe UI", sans-serif;
+      font-family: "Segoe UI", "Tahoma", sans-serif;
       background: var(--bg);
       color: var(--text-main);
       overflow-x: hidden;
     }
 
-    /* ======= الهيدر ======= */
     header {
+      position: fixed;
+      top: 0;
+      width: 100%;
       background: rgba(5,10,25,0.9);
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.3);
     }
 
     .topbar {
@@ -52,36 +53,29 @@
       display: flex;
       align-items: center;
       gap: .6rem;
-      text-decoration: none;
       color: #fff;
+      text-decoration: none;
     }
 
     .logo img {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 10px;
-      object-fit: cover;
-      box-shadow: 0 0 15px rgba(41,182,246,0.3);
-    }
-
-    .logo strong {
-      font-size: .9rem;
-      letter-spacing: .02em;
+      box-shadow: 0 0 15px rgba(41,182,246,0.4);
     }
 
     nav {
       display: flex;
-      gap: .4rem;
+      gap: .8rem;
       align-items: center;
-      transition: var(--transition);
     }
 
     nav a {
       color: #fff;
       text-decoration: none;
-      padding: .45rem .8rem;
+      padding: .5rem 1rem;
       border-radius: .6rem;
-      font-size: .75rem;
+      font-size: .8rem;
       transition: var(--transition);
     }
 
@@ -94,100 +88,76 @@
       background: linear-gradient(135deg, var(--accent), var(--blue-dark));
       border: none;
       color: #fff;
-      padding: .45rem 1rem;
+      padding: .5rem 1rem;
       border-radius: .6rem;
-      font-size: .7rem;
+      font-size: .8rem;
       cursor: pointer;
       transition: var(--transition);
     }
 
-    .btn-login:hover { opacity: .9; transform: translateY(-2px); }
+    .btn-login:hover { transform: translateY(-2px); opacity: .9; }
 
-    /* ===== زر البرجر للجوال ===== */
     .menu-toggle {
       display: none;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.2);
-      width: 34px;
-      height: 30px;
-      border-radius: .4rem;
-      cursor: pointer;
-      gap: 4px;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 60;
-      transition: .3s ease;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      width: 36px;
+      height: 32px;
+      border-radius: .4rem;
+      cursor: pointer;
+      z-index: 110;
     }
 
     .menu-toggle span {
       width: 18px;
       height: 2px;
       background: #fff;
-      border-radius: 2px;
+      margin: 3px 0;
       transition: .3s;
     }
 
-    /* عند التفعيل */
     .menu-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
     .menu-toggle.active span:nth-child(2) { opacity: 0; }
     .menu-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-    /* القائمة الجانبية للجوال */
     @media (max-width: 900px) {
       nav {
         position: fixed;
         top: 0;
-        right: -250px;
+        right: -240px;
         height: 100%;
         width: 230px;
         flex-direction: column;
         align-items: flex-start;
-        background: rgba(5,10,25,.97);
-        border-left: 1px solid rgba(255,255,255,.08);
-        padding: 2.2rem 1rem;
-        gap: .6rem;
-        box-shadow: -5px 0 30px rgba(0,0,0,.5);
-        transition: right .35s ease;
-        z-index: 55;
+        background: rgba(5,10,25,0.98);
+        padding: 3rem 1rem;
+        gap: 1.5rem;
+        transition: right .4s ease;
+        z-index: 105;
       }
-
-      nav.show {
-        right: 0;
-      }
-
-      nav a {
-        width: 100%;
-        padding: .7rem .8rem;
-        border-radius: .6rem;
-        font-size: .8rem;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
+      nav.show { right: 0; }
+      .menu-toggle { display: flex; }
     }
 
-    /* تظليل الخلفية عند فتح القائمة */
     .overlay {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,.55);
-      backdrop-filter: blur(3px);
-      z-index: 54;
+      background: rgba(0,0,0,.6);
+      z-index: 90;
     }
-
     .overlay.show { display: block; }
 
-    /* ======= HERO ======= */
     #hero {
       position: relative;
-      min-height: 95vh;
+      min-height: 100vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: center;
-      padding: 3rem 1.5rem;
+      padding: 6rem 2rem 3rem;
       overflow: hidden;
     }
 
@@ -197,7 +167,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: brightness(0.35) contrast(1.1) saturate(1.2);
+      filter: brightness(0.35);
       z-index: 0;
     }
 
@@ -205,7 +175,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at center, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
+      background: radial-gradient(circle at center, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
       z-index: 1;
     }
 
@@ -216,20 +186,18 @@
     }
 
     .hero-content h1 {
-      font-size: 2.4rem;
-      line-height: 1.2;
-      margin: 0 0 .6rem;
-    }
-
-    .hero-content h1 span {
+      font-size: 2.6rem;
+      line-height: 1.3;
+      margin-bottom: .6rem;
       background: linear-gradient(135deg, var(--accent-glow), #fff);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero-content p {
       color: var(--text-muted);
-      font-size: .85rem;
+      font-size: .9rem;
       line-height: 1.9;
       max-width: 36rem;
     }
@@ -264,110 +232,43 @@
 
     .btn:hover { transform: translateY(-2px); opacity: .9; }
 
-    /* ======= CARD ======= */
     .hero-card {
       position: relative;
       z-index: 2;
-      background: rgba(10,20,40,0.8);
-      border: 1px solid rgba(41,182,246,.25);
+      background: rgba(10,20,40,0.85);
+      border: 1px solid rgba(41,182,246,.3);
       border-radius: var(--radius-lg);
       padding: 1.2rem;
       box-shadow: 0 25px 60px rgba(0,0,0,.6);
       backdrop-filter: blur(6px);
-      animation: fadeIn 1.6s ease;
+      margin-top: 1rem;
     }
 
-    .hero-card h3 { font-size: .9rem; margin-top: 0; }
-
-    .wallet-list { margin-top: .6rem; display: grid; gap: .5rem; }
-
-    .wallet-item {
-      display: flex;
-      justify-content: space-between;
-      background: rgba(255,255,255,.05);
-      border-radius: .7rem;
-      padding: .5rem .7rem;
-      font-size: .72rem;
-      border: 1px solid rgba(255,255,255,.1);
-      transition: background .25s;
-    }
-
-    .wallet-item:hover { background: rgba(255,255,255,.08); }
-
-    /* ======= الأقسام ======= */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem;
-    }
-
-    .section-title {
-      font-weight: bold;
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-    }
-
-    .section-title span {
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
-    }
-
-    .card {
-      background: linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.05);
-      border-radius: .9rem;
-      padding: 1rem;
-      box-shadow: 0 15px 40px rgba(0,0,0,.5);
-      transition: var(--transition);
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(41,182,246,.4);
-      box-shadow: 0 25px 60px rgba(0,0,0,.7);
-    }
-
-    .card h3 { margin: 0 0 .3rem; font-size: .9rem; }
-    .card p { margin: 0; color: var(--text-muted); font-size: .7rem; line-height: 1.8; }
-
-    /* ======= الفوتر ======= */
     footer {
-      background: linear-gradient(to top, #02040a, #050814);
+      background: #02040a;
       border-top: 1px solid rgba(255,255,255,.05);
       text-align: center;
       padding: 1.2rem;
       color: var(--text-muted);
-      font-size: .72rem;
+      font-size: .75rem;
     }
 
-    /* ======= مؤثرات ======= */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
     @media (max-width: 900px) {
-      #hero { grid-template-columns: 1fr; text-align: center; padding-top: 6rem; }
+      #hero { grid-template-columns: 1fr; text-align: center; padding-top: 7rem; }
       .hero-card { margin-top: 1.5rem; }
     }
   </style>
 </head>
 <body>
+
   <header>
     <div class="topbar">
-      <a href="index.html" class="logo">
+      <a href="#" class="logo">
         <img src="media/logo.jpg" alt="شعار شرفات" />
         <strong>شرفات للاستثمار</strong>
       </a>
@@ -380,53 +281,36 @@
       </nav>
 
       <div style="display:flex; align-items:center; gap:.5rem;">
-        <button class="btn-login" onclick="scrollToSection('login')">تسجيل الدخول</button>
-        <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="btn-login" onclick="scrollToSection('contact')">تواصل الآن</button>
+        <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <div class="overlay" id="overlay"></div>
 
-  <!-- قسم المقدمة -->
   <section id="hero">
     <video autoplay muted loop playsinline>
       <source src="media/video11.mp4" type="video/mp4">
     </video>
 
     <div class="hero-content">
-      <h1>منصة <span>شرفات للاستثمار</span><br>لإدارة المحافظ الرقمية بثقة واحترافية</h1>
-      <p>
-        منصة سعودية رائدة تقدم حلولاً رقمية متقدمة لإدارة المحافظ المالية، التكامل مع أنظمة الدفع، وتحليل التدفقات النقدية في الزمن الحقيقي.
-      </p>
+      <h1>حلول مالية <span>موثوقة</span><br>منصة شرفات لإدارة المحافظ الرقمية</h1>
+      <p>منصة سعودية متخصصة في تمكين المستثمرين من إدارة أموالهم ومحافظهم الرقمية بأمان واحترافية عالية.</p>
       <div class="hero-actions">
         <button class="btn btn-primary" onclick="scrollToSection('services')">اكتشف خدماتنا</button>
-        <button class="btn btn-outline" onclick="scrollToSection('about')">عن المنصة</button>
+        <button class="btn btn-outline" onclick="scrollToSection('contact')">تواصل معنا</button>
       </div>
     </div>
 
     <div class="hero-card">
-      <h3>لوحة المحافظ النشطة</h3>
+      <h3>المحافظ النشطة</h3>
       <div class="wallet-list" id="liveWallets"></div>
       <p style="opacity:.6;font-size:.65rem;margin-top:.5rem;">آخر تحديث: <span id="lastUpdate"></span></p>
     </div>
   </section>
 
-  <main>
-    <section id="services">
-      <div class="section-title">الخدمات <span></span></div>
-      <div class="cards">
-        <div class="card"><h3>إدارة العملاء والمحافظ</h3><p>تحكم كامل في أرصدة العملاء مع مراقبة فورية وحماية من التلاعب.</p></div>
-        <div class="card"><h3>تكامل مع بوابات الدفع</h3><p>ربط مباشر مع مزودي الدفع في السعودية عبر واجهات API مرنة.</p></div>
-        <div class="card"><h3>تحليلات وتقارير ذكية</h3><p>لوحات بيانات لحظية تساعدك على اتخاذ قرارات مالية دقيقة.</p></div>
-        <div class="card"><h3>إدارة الأمان والصلاحيات</h3><p>تخصيص الأدوار والتحكم في صلاحيات المستخدمين بكل دقة.</p></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>© 2025 شرفات للاستثمار والتطوير العقاري - جميع الحقوق محفوظة</footer>
+  <footer>© 2025 شرفات للاستثمار - جميع الحقوق محفوظة</footer>
 
   <script>
     // القائمة الجانبية للجوال
@@ -446,28 +330,36 @@
       overlay.classList.remove("show");
     });
 
-    function scrollToSection(id){ const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:"smooth"}); }
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        nav.classList.remove("show");
+        toggle.classList.remove("active");
+        overlay.classList.remove("show");
+      }
+    }
 
-    const sampleWallets=[
-      {name:"محفظة تاجر #324",balance:"SAR 12,450",status:"نشطة"},
-      {name:"محفظة عميل #882",balance:"SAR 2,180",status:"معلّقة"},
-      {name:"محفظة مورد #006",balance:"SAR 54,700",status:"نشطة"},
-      {name:"محفظة دفع فوري",balance:"SAR 8,410",status:"نشطة"}
+    const sampleWallets = [
+      { name: "محفظة رئيسية", balance: "SAR 54,700", status: "نشطة" },
+      { name: "محفظة العملاء", balance: "SAR 21,450", status: "قيد التحديث" },
+      { name: "محفظة الموردين", balance: "SAR 8,410", status: "نشطة" }
     ];
 
-    function renderLiveWallets(){
-      const c=document.getElementById("liveWallets");
-      c.innerHTML="";
-      sampleWallets.forEach(w=>{
-        c.innerHTML+=`
-        <div class="wallet-item">
+    function renderLiveWallets() {
+      const c = document.getElementById("liveWallets");
+      c.innerHTML = "";
+      sampleWallets.forEach(w => {
+        c.innerHTML += `
+        <div style="display:flex;justify-content:space-between;background:rgba(255,255,255,.05);border-radius:.7rem;padding:.5rem .7rem;margin:.3rem 0;">
           <div><strong>${w.name}</strong><br><small>${w.status}</small></div>
           <div>${w.balance}</div>
         </div>`;
       });
-      document.getElementById("lastUpdate").textContent=
-        new Date().toLocaleString("ar-SA",{dateStyle:"short",timeStyle:"short"});
+      document.getElementById("lastUpdate").textContent =
+        new Date().toLocaleString("ar-SA", { dateStyle: "short", timeStyle: "short" });
     }
+
     renderLiveWallets();
   </script>
 </body>
